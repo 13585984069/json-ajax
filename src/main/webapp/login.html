@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        window.onload = function (){
+            let checkUser = document.getElementById("checkUser");
+            checkUser.onclick = function (){
+                let username = document.getElementById("uname").value;
+                let email = document.getElementById("uname").value;
+                let phone = document.getElementById("uname").value;
+                let xhr = new XMLHttpRequest();
+                xhr.open("get", "/json/checkdb?username="+username, true);
+                xhr.onreadystatechange = function (){
+                    let response = xhr.response;
+                    if(response === ""){
+                        document.getElementById("myres").value = "该用户名可用";
+                        document.getElementById("div1").value = "";
+                    }else{
+                        document.getElementById("myres").value = "该用户名已存在";
+                        document.getElementById("div1").innerText = response;
+                    }
+                }
+                xhr.send();
+
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>用户注册</h1>
+<form action="/json/checkdb" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkUser" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password" id="password"><br/><br/>
+    电子邮件:<input type="text" name="email" id="email"><br/><br/>
+    <input type="submit" value="用户注册"></form>
+<h1>返回的 json 数据</h1>
+<div id="div1"></div>
+</body>
+</html>

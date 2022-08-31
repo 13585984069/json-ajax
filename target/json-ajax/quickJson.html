@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            var myJson = {
+                "key1": "韩顺平教育",
+                // 字符串
+                "key2": 123,
+                // Number
+                "key3": [1, "hello", 2.3], // 数组
+                "key4": {"age": 12, "name": "jack"}, //json 对象
+                //json 数组
+                "key5": [  {"k1": 10, "k2": "milan"}, {"k3": 30, "k4": "smith"} ]
+            };
+            console.log("key1= "+ myJson.key1);
+            console.log("key2= "+ myJson.key2);
+            console.log("key3= "+ myJson.key3);
+            for (let i =0;i<myJson.key3.length;i++) {
+                console.log("第%i个值是: ",i, myJson.key3[i]);
+            }
+            console.log("key4= ", myJson.key4); // ,可以取出值，+是对象
+            console.log("key5= "+ myJson.key5);
+        }
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

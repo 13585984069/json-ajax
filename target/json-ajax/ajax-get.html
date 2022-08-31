@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            $("#checkUser").click(function (){
+                // 不需要填写参数名url这种， 但是顺序要保证 写了也无所谓
+                $.get(  "/json/checkdb2",
+                        {username:$("#uname").val(),
+                        date:new Date()},
+                        function (response,status,xhr){
+                        if(response.username ===""){
+
+                            $("#myres").val("用户名可用");
+                        }else{
+                            $("#myres").val("用户名已存在");
+                            // data 是json对象要显示需要转为string
+                            $("#div1").html(JSON.stringify(response));
+                        }
+                    },
+                    "json")
+            })
+
+        })
+    </script>
+</head>
+<body>
+<h1>用户注册jquery+ajax</h1>
+<form action="/json/checkdb2" method="post">
+    用户名字:<input type="text" name="username" id="uname">
+    <input type="button" id="checkUser" value="验证用户名">
+    <input style="border-width: 0;color: red" type="text" id="myres"><br/><br/>
+    用户密码:<input type="password" name="password" id="password"><br/><br/>
+    电子邮件:<input type="text" name="email" id="email"><br/><br/>
+    <input type="submit" value="用户注册"></form>
+<h1>返回的 json 数据</h1>
+<div id="div1"></div>
+</body>
+</html>

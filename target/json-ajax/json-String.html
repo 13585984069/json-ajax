@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json-string</title>
+    <script type="text/javascript">
+        window.onload = function (){
+            let v = {"name":"chen","age":27};
+            let s = JSON.stringify(v);
+            console.log(s);
+            let parse = JSON.parse(s);
+            let str = "{\"name\":\"chen\",\"age\":27}";
+            let parse1 = JSON.parse(str);
+            console.log(parse1);
+        }
+    </script>
+</head>
+<body>
+<h1>json - string</h1>
+</body>
+</html>

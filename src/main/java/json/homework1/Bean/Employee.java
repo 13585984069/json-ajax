@@ -1,0 +1,64 @@
+package json.homework1.Bean;
+
+/**
+ * @author JJChen
+ * @version 1.0
+ */
+public class Employee {
+    private Integer id;
+    private String empID;
+    private String pwd;
+    private String name;
+    private String job;
+
+    public Employee() {
+    }
+
+    public Employee(Integer id, String empID, String pwd, String name, String job) {
+        this.id = id;
+        this.empID = empID;
+        this.pwd = pwd;
+        this.name = name;
+        this.job = job;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getEmpID() {
+        return empID;
+    }
+
+    public void setEmpID(String empID) {
+        this.empID = empID;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+}
